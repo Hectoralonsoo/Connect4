@@ -5,15 +5,14 @@ import Console.Show;
 public class Goal implements WinConditions{
     private final Board board;
     private boolean winCondition;
-    Show show = new Show();
+    private Show show;
 
 
     public Goal(Board board) {
         this.board = board;
         winCondition = false;
+        this.show = new Show();
     }
-
-
 
     public boolean vertical(Player player) {
 
@@ -88,7 +87,6 @@ public class Goal implements WinConditions{
             return winCondition;
         }
 
-  
     public boolean inverseDiagonal (Player player){
             int actualRow = player.getLastRow();
             int actualCol = player.getLastColumn();
@@ -117,12 +115,8 @@ public class Goal implements WinConditions{
             return winCondition;
         }
 
-
         public boolean winner(Player player){
             return inverseDiagonal(player) || diagonal(player) || vertical(player) || horizontal(player);
         }
     }
-
-
-
 

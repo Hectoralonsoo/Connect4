@@ -23,6 +23,7 @@ public class Human extends Player{
                 column = scanner.nextInt() - 1;
             }catch(InputMismatchException ex){
                 column = -1;
+                Show.unexpectedCharacter();
                 scanner.nextLine();
             }
         }while(column < 0 || column > 6);

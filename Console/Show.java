@@ -13,6 +13,10 @@ public class Show implements GamePrinter {
         System.out.println("The column is completed, please introduce another one:");
     }
 
+    public static void unexpectedCharacter(){
+        System.out.println("Unexpected character, please introduce a valid one [1-7]");
+    }
+
     public static void insertToken(){
         System.out.println("Enter a column to drop a token [1-7]:");
     }

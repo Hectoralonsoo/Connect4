@@ -1,4 +1,4 @@
-package Console;
+package Model;
 import Model.Board;
 import java.util.Scanner;
 import java.util.Stack;
@@ -6,7 +6,6 @@ import java.util.Stack;
 public class Memento {
     public Stack<Board> undoStack;
     public Stack<Board> redoStack;
-    private Show show = new Show();
 
     public Memento(){
         this.undoStack = new Stack<>();

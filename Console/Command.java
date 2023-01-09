@@ -1,7 +1,5 @@
 package Console;
 import Model.*;
-import Model.Human;
-import Service.DependencyInjector;
 import Service.Services;
 
 
@@ -22,12 +20,13 @@ public class Command {
     private static  String command = "";
 
     private Show show;
-    private Scanner sc = new Scanner(System.in);
+    private Scanner sc;
     private Services services;
 
 
     public Command(Services services, Show show) {
         this.services = services;
+        this.sc = new Scanner(System.in);
         this.show = show;
     }
 
@@ -44,26 +43,9 @@ public class Command {
         this.show.showHelp(Command.REDO+ " : Put again the removed token");
     }
 
-    public void humanVsHuman(){
-        services.setPlayer1(new Human(Color.YELLOW));
-        services.setPlayer2(new Human(Color.RED));
-    }
 
-    public void machineVsMachine(){
-        services.setPlayer1(new Machine(Color.YELLOW));
-        services.setPlayer2(new Machine(Color.RED));
-    }
-    public void humanVsMachine(){
-        services.setPlayer1(new Human(Color.YELLOW));
-        services.setPlayer2(new Machine(Color.RED));
-    }
 
-    public void Demo(){
-        machineVsMachine();
-        do{
 
-        }
-    }
 
 
 
@@ -84,32 +66,33 @@ public class Command {
                 this.help();
                 break;
             case Command.BASIC:
-
                 GameMode.BASIC.play();
-                Show.print("Do you want to continue:");
-
+                Show.print("Do you want to continue(y/n):");
                 break;
+
             case Command.DEMO:
-
                 GameMode.DEMO.play();
-                Show.print("Do you want to continue:");
-
+                Show.print("Do you want to continue(y/n):");
                break;
+
             case Command.TRAINING:
-
                 GameMode.TRAINING.play();
-                Show.print("Do you want to continue:");
-
-
+                Show.print("Do you want to continue(y/n):");
                 break;
 
             default:
                 Show.print("Not a valid command, please insert a valid one>>");
                 help();
+                break;
 
         }
+
+
         this.command = sc.next().toUpperCase();
-        }while(command.equals(Command.HELP) || this.command.equals("Y") || command.equals(Command.DEMO));
+
+
+
+        }while(command.equals(Command.HELP) || this.command.equals("Y"));
         return command;
     }
 

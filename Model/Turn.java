@@ -3,12 +3,10 @@ package Model;
 public class Turn implements ITurn{
     private Player[] players;
     private static final int NUMBER_PLAYERS = 2;
-    private Board board;
+
     private int activePlayer;
 
-    Turn(Board board){
-        assert board != null;
-        this.board = board;
+    Turn(){
         this.players = new Player[NUMBER_PLAYERS];
         this.reset();
     }

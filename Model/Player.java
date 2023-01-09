@@ -25,6 +25,7 @@ public abstract class Player {
         int row = 5;
         while (!board.tokens[row][column].isNull() && row >= 0) {
             if (row == 0) {
+                if(this.getClass() == Human.class)
                 Show.columnCompleted();
                 column = readColumn();
 

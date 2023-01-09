@@ -31,14 +31,6 @@ public class Board{
     }
 
 
-    public void resetBoard(){
-        for(int i = 0; i < rows; i++)
-            for(int j = 0; j < columns; j++)
-                this.tokens[i][j].setColor(Color.NULL);
-    }
-
-
-
     public int getColumns(){
         return this.columns;
     }
